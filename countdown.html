@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h4>Countdown: <code id="countNumber">90</code></h4>
+    <input type="text" id="inputNumber" placeholder="Enter a number">
+    <!-- <p>Click the button to start the countdown from 90 seconds.</p> -->
+    <button id="startBtn" onclick="startCountdown()">Start Countdown</button>
+    <button id="stopBtn" onclick="stopCountdown()" style="display: none;">Stop Countdown</button>
+    <button id="resetBtn" onclick="resetCountdown()">Reset Countdown</button>
+<!-- 
+
+
+    // setInterval(callbackfunction, timeInMilliseconds)
+    // let timer;
+
+    // function countdown() {
+    //     let countNumber = document.getElementById("countNumber");
+    //     countNumber.innerHTML--;
+    //     if(countNumber.innerHTML == 0) {
+    //         stopCountdown();
+    //         resetCountdown();
+    //     }
+    // }
+
+    // function startCountdown() {
+    //     timer = setInterval(countdown, 100);
+    //     document.getElementById("startBtn").style.display = "none";
+    //     document.getElementById("stopBtn").style.display = "inline-block";
+    // }
+
+    // function stopCountdown() {
+    //     clearInterval(timer);
+    //     document.getElementById("stopBtn").style.display = "none";
+    //     document.getElementById("startBtn").style.display = "inline-block";
+    // }
+
+    // function resetCountdown() {
+    //     countNumber.innerHTML = 90;
+    // }
+
+
+    // Countdown Timer
+    // This code creates a countdown timer that starts from 90 seconds and decrements every
+     -->
+    <script>
+        
+
+        let timer;
+        const startCountdown = () => {
+            const countNumber = document.getElementById("countNumber");
+            timer = setInterval(() => {
+                countNumber.innerHTML--;
+                if (countNumber.innerHTML == 0) {
+                    stopCountdown();
+                    resetCountdown();
+                }
+            }, 100);
+            document.getElementById("startBtn").style.display = "none";
+            document.getElementById("stopBtn").style.display = "inline-block";
+        };
+
+        const stopCountdown = () => {
+            clearInterval(timer);
+            document.getElementById("stopBtn").style.display = "none";
+            document.getElementById("startBtn").style.display = "inline-block";
+        };
+
+        const resetCountdown = () => {
+            const countNumber = document.getElementById("countNumber");
+            countNumber.innerHTML = 90;
+        };
+
+
+    </script>
+</body>
+</html>

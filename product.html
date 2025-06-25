@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <div class="container-fluid border border-black my-4">
+    
+        <div class ="row" style="min-height: 50dvh;">
+            <div class="alert alert-danger" role="alert" id="errorAlert" style="display: none;">
+                please enter a valid product name
+            </div>
+            <div class="col-12 col-md-4 shadow-sm my-2 py-4">
+                <input type="text" class="form-control col-md-4 shadow-sm my-2" placeholder="Enter a product name" id="productName">
+                <input type="number" class="form-control col-md-4 shadow-sm my-2" placeholder="Enter a product price" id="productPrice">
+                <input type="text" class="form-control col-md-4 shadow-sm my-2" placeholder="Enter a product image" id="productImage">
+                <input type="text" class="form-control col-md-4 shadow-sm my-2" placeholder="Quantity left" id="productQuantity">
+                <button class="btn btn-primary w-100 my-2" onclick="addProduct()">Add Product</button>
+                <button class="btn btn-danger w-100 my-2" onclick="clearFields()" id="clearFields">Clear Fields</button>
+            </div>
+        
+            <div class="col-12 col-md-8 my-2 danger">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Product Price</th>
+                            <th scope="col">Product Image</th>
+                            <th scope="col">Quantity Left</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+
+                        </tr>
+                    </thread>
+
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        let allproducts = [];
+        function addProduct() {
+            let productName = document.getElementById("productName").value;
+            let productPrice = document.getElementById("productPrice").value;
+            let productImage = document.getElementById("productImage").value;
+            let productQuantity = document.getElementById("productQuantity").value;
+            let errorAlert = document.getElementById("errorAlert");
+            let table = document.getElementById("table");
+            let tableBody = document.querySelector("table tbody");
+
+
+
+            if (productName.trim() === '' || productPrice.trim() === '' || productImage.trim() === '' || productQuantity.trim() === '') {
+                errorAlert.style.display = 'block';
+                return;
+            } else {
+                errorAlert.style.display = 'none';
+
+                let products = {
+                    productName,
+                    productPrice,
+                    productImage,
+                    productQuantity
+                }
+                allproducts.push(products);
+                console.log(allproducts);
+
+                displayProducts();
+
+                document.getElementById("productName").value = '';
+                document.getElementById("productPrice").value = '';
+                document.getElementById("productImage").value = '';
+                document.getElementById("productQuantity").value = '';
+            }
+        }
+
+        function displayProducts() {
+                let htmlTable= '';
+                for (let i = 0; i < allproducts.length; i++) {
+                    htmlTable += `
+                        <tr>
+                            <td>${i + 1}</td>
+                            <td>${allproducts[i].productName}</td>
+                            <td>${allproducts[i].productPrice}</td>
+                            <td><img src="${allproducts[i].productImage}" alt="${allproducts[i].productName}" style="width: 70px;"></td>
+                            <td>${allproducts[i].productQuantity}</td>
+                            <td><button class="btn btn-info my-2" onclick="editProduct(${i})">Edit</button></td>
+                            <td><button class="btn btn-danger my-2" onclick="deleteProduct(${i})">Delete</button></td>
+                        </tr>
+                    `;
+                }
+                tableBody.innerHTML = htmlTable;
+            }
+
+            function editProduct(i) {
+                let newProductName = prompt("Enter new product name:", allproducts[i].productName);
+                let newProductPrice = prompt("Enter new product price:", allproducts[i].productPrice);
+                let newProductImage = prompt("Enter new product image URL:", allproducts[i].productImage);
+                let newProductQuantity = prompt("Enter new product quantity:", allproducts[i].productQuantity);
+
+                if(newProductName.trim() != null || newProductPrice.trim() != null || newProductImage.trim() != null || newProductQuantity.trim() != null) {
+                    allproducts[i].productName = newProductName
+                    allproducts[i].productPrice = newProductPrice
+                    allproducts[i].productImage = newProductImage
+                    allproducts[i].productQuantity = newProductQuantity
+
+                    displayProducts()
+                }
+
+            }
+
+            function deleteProduct(i) {
+                let deleted = confirm("Are you sure you want to delete this product? This action is irreversible.");
+                if (deleted) {
+                    allproducts.splice(i, 1);
+                    displayProducts();
+                }
+            }
+
+            function clearFields() {
+                let clear = confirm("Are you sure you want to clear all fields? This action is irreversible.");
+                if(clear){
+                    allproducts = [];
+                    displayProducts();                    
+
+                }
+            }
+
+            // if (productName === '' || productPrice === '' || productImage === '' || productQuantity === '') {
+            //     errorAlert.style.display = 'block';
+            //     return;
+            // } else {
+            //     errorAlert.style.display = 'none';
+            // }
+    </script>
+
+</body>
+</html>

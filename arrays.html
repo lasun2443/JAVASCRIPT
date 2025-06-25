@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="demo"></p>
+    
+    <script>
+        //string methods
+        let word = 'university'
+        console.log(word);
+        document.getElementById("demo").innerHTML = word
+
+        //changing cases
+        console.log(word.toUpperCase())
+
+        let fruit = 'APPLE'
+        console.log(fruit.toLocaleUpperCase())
+        // document.getElementById("demo").innerHTML = fruit
+
+        //modify & replacing
+        let name = "Lola    "
+        console.log(name.replace("L" , "B"))
+        console.log(name.replaceAll("Lola" , "Tolu"))
+        console.log(name.replace(3))
+        console.log(name.length) //7
+        console.log(name.trim().length) //4
+
+        // searching in a string
+        let sentence = "I am a student at the university of lagos"
+        console.log(sentence.indexOf("a"));
+        console.log(sentence.lastIndexOf("a"));
+        console.log(sentence.includes("student"));
+        console.log(sentence.startsWith("I"));
+        console.log(sentence.endsWith("lagos"));
+
+
+        // working with a string
+
+        let school = "university of lagos"
+        console.log(school.charAt(12));
+
+        //padstring
+        let text = "5";
+        let padded = text.padStart(4,"0");
+        console.log(padded); // "0005"
+        let padded2 = text.padEnd(4,"0");
+        console.log(padded2); // "5000"
+
+        //split string
+        let sentence2 = "I am a student at the university of lagos"
+        let words = sentence2.split(" ");
+        console.log(words); //["I", "am", "a", "student", "at", "the", "university", "of", "lagos"]
+
+        //string interpolation
+        let name2 = "Tolu";
+        let greeting = `Hello, my name is ${name2}.`;
+        console.log(greeting);
+
+        //trimstart strings
+        let text2 = "   Hello, World!   ";
+        console.log(text2.trimStart()); // "Hello, World!   "
+
+        //trimend
+        console.log(text2.trimEnd()); // "   Hello, World!"
+
+        //repeat strings
+        let repeatedText = "Hello".repeat(3);
+        console.log(repeatedText); // "HelloHelloHello"
+
+        
+        //array
+        let fruits = ["apple", "mango",  "watermelon", "pineapple", "orange"]
+        console.log(fruits);
+        console.log(fruits.length);
+        console.log(fruits[4]);
+
+        //Array methods
+        // fruits.pop()
+        // console.log(fruits);
+
+        // fruits.push("banana")
+        // console.log(fruits);
+
+        // fruits.shift()
+        // console.log(fruits);
+        
+        // fruits.unshift("grape")
+        // console.log(fruits);
+
+        //joining arrays
+        
+        console.log(fruits.join("*"));
+        
+        console.log(fruits.join(","));//applemangowatermelonpineappleorange
+        
+        //delete Array
+        delete fruits[2] //removes the element at index 2 but leaves an empty slot
+        console.log(fruits); //["apple", "mango", <1 empty item>, "pineapple", "orange"]
+        
+        //concat Arrays
+        let vegetables = ["carrot", "cabbage", "spinach"]
+        concatenate = fruits.concat(vegetables)
+        console.log(concatenate); //["apple", "mango", <1 empty item>, "pineapple", "orange", "carrot", "cabbage", "spinach"]
+        
+        //slicing an array
+        let sliced = fruits.slice(1, 4);
+        console.log(sliced); //["mango", <1 empty item>, "pineapple"]
+        let sliced2 = vegetables.slice(0, 2);
+        console.log(sliced2); //["carrot", "cabbage"]
+
+        fruits.splice(2, 3)
+        console.log(fruits);
+
+        fruits.splice(2, 3, "cherry")
+        console.log(fruits);
+        
+        
+        
+        //sorting an array
+        // let numbers = [5, 2, 8, 1, 4]
+        // numbers.sort((a, b) => a - b);
+        // console.log(numbers); //[1, 2, 4, 5, 8]
+
+        //with arrays
+        const months = ["Januar", "Februar", "Mar", "April"];
+        const myMonths = months.with(2, "March").with(0, "January");
+        console.log(myMonths); //["January", "Februar", "March", "April"]
+
+
+    </script>
+</body>
+</html>

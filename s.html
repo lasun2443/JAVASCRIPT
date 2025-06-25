@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Countdown Timer (ES6)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: monospace;
+    }
+    .timer-display {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #000000;
+      background: #fff;
+      padding: 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    input[type="number"] {
+      width: 90px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container text-center my-5">
+   
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-auto">
+        <input type="number" id="inputHours" class="form-control" placeholder="Hours" min="0">
+      </div>
+      <div class="col-auto">
+        <input type="number" id="inputMinutes" class="form-control" placeholder="Minutes" min="0" max="59">
+      </div>
+      <div class="col-auto">
+        <input type="number" id="inputSeconds" class="form-control" placeholder="Seconds" min="0" max="59">
+      </div>
+      <div class="col-auto">
+        <input type="number" id="inputMilliseconds" class="form-control" placeholder="Milliseconds" min="0" max="999">
+      </div>
+    </div>
+
+    <div id="countDisplay" class="timer-display">00:00:00:000</div>
+
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <button class="btn btn-success" id="startBtn" onclick="startCountdown()">Start</button>
+      <button class="btn btn-danger" id="stopBtn" onclick="stopCountdown()" style="display: none;">Stop</button>
+      <button class="btn btn-secondary" id="resetBtn" onclick="resetCountdown()">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    let timer = null;
+    let totalMs = 0;
+
+    const display = document.getElementById('countDisplay');
+    const inputHours = document.getElementById('inputHours');
+    const inputMinutes = document.getElementById('inputMinutes');
+    const inputSeconds = document.getElementById('inputSeconds');
+    const inputMilliseconds = document.getElementById('inputMilliseconds');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    const formatTime = ms => {
+      const hours = Math.floor(ms / (3600 * 1000));
+      const minutes = Math.floor((ms % (3600 * 1000)) / (60 * 1000));
+      const seconds = Math.floor((ms % (60 * 1000)) / 1000);
+      const milliseconds = ms % 1000;
+
+      return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(milliseconds).padStart(3, '0')}`;
+    };
+
+    const startCountdown = () => {
+      if (timer) return;
+
+      const h = Number(inputHours?.value) || 0;
+      const m = Number(inputMinutes?.value) || 0;
+      const s = Number(inputSeconds?.value) || 0;
+      const ms = Number(inputMilliseconds?.value) || 0;
+
+      totalMs = (h * 3600000) + (m * 60000) + (s * 1000) + ms;
+
+      if (totalMs <= 0) {
+        alert("Please enter a valid time greater than 0.");
+        return;
+      }
+
+      display.textContent = formatTime(totalMs);
+
+      timer = setInterval(() => {
+        totalMs -= 10;
+        if (totalMs <= 0) {
+          clearInterval(timer);
+          timer = null;
+          display.textContent = "00:00:00:000";
+          startBtn.style.display = 'inline-block';
+          stopBtn.style.display = 'none';
+        } else {
+          display.textContent = formatTime(totalMs);
+        }
+      }, 10);
+
+      startBtn.style.display = 'none';
+      stopBtn.style.display = 'inline-block';
+    };
+
+    const stopCountdown = () => {
+      clearInterval(timer);
+      timer = null;
+      startBtn.style.display = 'inline-block';
+      stopBtn.style.display = 'none';
+    };
+
+    const resetCountdown = () => {
+      clearInterval(timer);
+      timer = null;
+      totalMs = 0;
+      display.textContent = "00:00:00:000";
+      inputHours.value = '';
+      inputMinutes.value = '';
+      inputSeconds.value = '';
+      inputMilliseconds.value = '';
+      startBtn.style.display = 'inline-block';
+      stopBtn.style.display = 'none';
+    };
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <pi id="myScreen"></p>
+    
+    <button onclick="course()">click me</button>
+
+    <script>
+        // function name(params) {
+        //     code to execute
+        // }
+        // name() direct call
+        
+        
+
+        function greetings() {
+            console.log('Hello world');
+            document.getElementById('myScreen').innerHTML = 'Hello world'
+            
+            
+        }
+        greetings()
+
+        function introduce() {
+            let myName = prompt('Enter your name')
+            console.log(`my name is ${myName}`);
+            document.getElementById('myscreen').innerHTML += `My name is ${myName}`
+            
+        }
+        introduce()
+
+        function school() {
+            console.log('The name of my school is SQI college of ICT');
+            
+        }
+        school()
+
+        function course() {
+            console.log('I am study Software engineering at SQI');
+            
+        }
+        // course()
+
+
+    </script>
+
+
+
+</body>
+</html>

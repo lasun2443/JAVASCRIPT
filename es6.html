@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        function greet(params) {
+            console.log("Hello, World!");
+            
+        }
+
+        greet();
+
+        // () => {}
+
+
+
+        const greeting = () => {
+            console.log("Hello, World!");
+        }
+
+
+        const calc = (a, b) => {
+            console.log(a + b);
+        }
+
+        calc(5, 10);
+
+        let fruits = ["apple", "banana", "orange"];
+        fruits.forEach(function(fruit, index) {
+            console.log(fruit, index);
+        });
+
+        
+        fruits.forEach((fruit) => {
+            console.log(fruit);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div class="cat">
+
+        <label>Enter number of rows:</label>
+        <input type="number" id="rows">
+
+        <label>Enter number of columns:</label>
+        <input type="number" id="cols">
+
+
+        <select id="operation">
+            <option value="+">Addition</option>
+            <option value="-">Subtraction</option>
+            <option value="*">Multiplication</option>
+            <option value="/">Division</option>
+        </select>
+
+        <button onclick="generateTable()">Display Table</button>
+
+      </div>
+      <div id="myScreen"></div>
+
+        <script>
+            function generateTable() {
+                let rows = document.getElementById("rows").value;
+                let cols = document.getElementById("cols").value;
+                let operation = document.getElementById("operation").value;
+                let myScreen = document.getElementById("myScreen")
+
+                mySreen.innerHTML=''
+
+                let htmlTable = '<table>'
+                        for(let i = 1; i <= columns; i++){
+                            htmlTable += `<th>${i} Evaluation`
+                        }
+
+                        for(let a = 1; a <= rows; a++){
+                            htmlTable += '<tr>'
+                                for(let b = 1; b <= columns; b++){
+                                    let result = eval(`${b} ${operation} ${a}`)
+                                    htmlTable += `<td>${b} ${operation} ${a} = ${result}</td>`
+                                }
+                            htmlTable += '</td>'
+                        }
+                    htmlTable += '</table>'
+                    mySreen.innerHTML = htmlTable
+            }
+
+        </script>
+</body>
+</html>

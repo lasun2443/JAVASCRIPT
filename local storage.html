@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        // to save item - localStorage.setItem('key', 'value');
+        // to get item - localStorage.getItem('key');
+        // to remove item - localStorage.removeItem('key');
+        // to clear all items - localStorage.clear();
+
+
+        // to convert javascript array or object to a string, we use JSON.stringify()
+        // to convert json string to javascript array or object, we use JSON.parse()
+
+
+
+
+        // let jsObject = {name: "Tolu", age: 16}
+        // console.log(jsObject);
+        // console.log(jsObject.name);
+
+        // let jsonStr = JSON.stringify(jsObject);
+        // console.log(jsonStr); // {"name":"Tolu","age":16}
+
+        // localStorage.setItem('user', jsonStr); // Save to localStorage
+
+        // let fetchedItem = localStorage.getItem('user');
+        // console.log(fetchedItem); // {"name":"Tolu","age":16}
+        // console.log(fetchedItem.name); // undefined
+
+        // let covertedItem = JSON.parse(fetchedItem);
+        // console.log(covertedItem); // {name: "Tolu", age: 16
+        // console.log(covertedItem.name); // Tolu
+        // console.log(covertedItem.age); // 16
+
+
+        // Saving an array to localStorage
+        // let jsArray = [1, 2, 3, 4, 5];
+        // console.log(jsArray); // [1, 2, 3, 4,
+
+
+        // let jsonArrayStr = JSON.stringify(jsArray);
+        // console.log(jsonArrayStr); // "[1,2,3,4,5]"
+        // console.log(typeof jsonArrayStr); // string
+
+        // localStorage.setItem('jsonStrArray', jsonArrayStr); // Save to localStorage
+
+        // let retrievedItem = localStorage.getItem('jsonStrArray');
+        // console.log(retrievedItem); // "[1,2,3,4,5]"
+
+
+        // let convertedArray = JSON.parse(retrievedItem);
+        // console.log(convertedArray); // [1, 2, 3, 4
+
+        //localStorage.removeItem('jsonStrArray'); // Remove item from localStorage
+        // localStorage.clear(); // Clear all items from localStorage
+
+
+
+
+
+
+        // Storing an array of objects in localStorage
+
+        // let allTodos = [
+        //     {id: 1, task: "Buy groceries", completed: false},
+        //     {id: 2, task: "Walk the dog", completed: true},
+        // ];
+
+        // let jsonTodos = JSON.stringify(allTodos);
+        // localStorage.setItem('allTodos', JSON.stringify(allTodos)); // Save to localStorage
+
+        // let fetchedTodos = localStorage.getItem('todos');
+        // console.log(fetchedTodos); // [{"id":1,"task":"Buy groceries","completed":false},{"id":2,"task":"Walk the dog","completed":true}]
+
+
+        // let convertedTodos = JSON.parse(fetchedTodos);
+        // console.log(convertedTodos);
+
+        // allTodos = JSON.parse(localStorage.getItem('allTodos')); // Fetch and convert to array of objects
+        // console.log(allTodos); // [{id: 1, task: "Buy groceries",
+    </script>
+</body>
+</html>

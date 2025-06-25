@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button onclick="doNumber()">Generate</button>
+    </div>
+    <h2>Multiplication Table <span id="multiplierDisplay"></span></h2>
+    <div id="myScreen"></div>
+
+    <script>
+        function doNumber(){
+            let multiplier = Number(numberInput.value);
+            let multiplierDisplay = document.getElementById('multiplierDisplay');
+            for(let i=1; i <=multiplier; i++){
+                let table = document.getElementById('myScreen');
+                    table.innerHTML += `<p >${i} + ${multiplier} = ${i + multiplier}</p>`
+                }
+        }
+    </script>
+</body>
+</html>

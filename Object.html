@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // let data = {
+        //     name: "John",
+        //     age: 30,
+        //     city: "New York"
+        
+
+        // }
+
+        // console.log(data);
+        // console.log(data.name); // John
+        // data.name = "Doe"; // Update name
+        // console.log(data); // Doe
+
+        // data.school = "University of Lagos"; // Add new property
+        // console.log(data);
+
+        let myData = {
+            name: "Tolu",
+            age: 25,
+            city: "Lagos",
+            school: "University of Lagos",
+            friends: {
+                username: "fatty",
+                class: 20,
+            },
+
+            myInfo: {
+                email: "tolu@example.com",
+                phone: "123-456-7890"
+            }
+
+        }
+
+        console.log(myData.friends.username); // fatty
+        myData.friends.username = "Tolu"; // Update username
+        console.log(myData);
+        myData.friends.age = "Tolu"; // Update username
+        console.log(myData);
+        console.log(myData);
+
+        let allData = {
+            name: "Tola",
+            school: "SQI",
+            course: "Web Development",
+            subjects: ["HTML", "CSS", "JavaScript"],
+        }
+        console.log(allData);
+        console.log(allData.name); // Tola
+        console.log(allData.subjects[0]); // HTML
+        allData.subjects.push("React"); // Add new subject
+        console.log(allData);
+
+
+        //Array of Objects
+
+        let info = ["Tolu", "Fatty", "Tola", "Tolu"];
+
+        let newInfo = {
+            email: "tola@example.com",
+            phone: "123-456-7890"
+        }
+
+        info.unshift(newInfo); // Add new object at the beginning
+        console.log(info);
+        console.log(info[0].email); // Access email of the first object
+
+
+
+        let fruits = ["Apple", "Banana", "Mango",{
+            name: "Pineapple",
+            color: "Yellow",
+            taste: "Sweet"
+        }];
+
+        console.log(fruits);
+        console.log(fruits[3].name); // Pineapple
+
+
+
+    </script>
+</body>
+</html>

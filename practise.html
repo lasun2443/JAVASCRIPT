@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>PRACTISING FORM WITH JS</h1>
+    <input type="text" placeholder="fullname" id="fullname">
+    <p style="display: none;" id="warning">please enter your full name</p>
+    <button id="" onclick="submit()">submit</button>
+    <p id="myScreen"></p>
+    <!-- <input type="text" placeholder="fullname" id="fullname"><br>
+    <p style="display: none;" id="warning">please enter your full name</p>
+    <button onclick="submit()">submit</button> -->
+
+    <script>
+
+
+        function submit() {
+            let fullname = document.getElementById("fullname").value;
+            let myScreen = document.getElementById("myScreen");
+            let warning = document.getElementById("warning");
+
+            if (fullname === '') {
+                warning.style.display = 'block';
+                warning.style.color = 'red';
+                warning.style.fontSize = '10px';
+            } else {
+                warning.style.display = "none";
+                myScreen.innerHTML += `Your fullname is: ${fullname}`;
+                document.getElementById("fullname").value = '';
+            }
+        }
+
+        // function submit() {
+        //     let fullname = document.getElementById("fullname").value
+        //     Fullname = document.getElementById("myScreen").innerHTML += `Your fullname ${fullname}` 
+            
+        //     if (fullname == '') {
+        //         warning.style.display = 'block'
+        //         warning.style.color = 'red'
+        //         warning.style.fontSize = '10px'
+
+                
+
+        //     }
+
+        //     else{
+        //         warning.style.display = "none"
+        //         document.getElementById("fullname").value = ''
+        //     }               
+        // }
+    </script>
+</body>
+</html>

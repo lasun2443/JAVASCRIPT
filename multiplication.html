@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="myScreen"></div>
+
+    <script>
+        for(let i=1; i <=12; i++){
+            let table = document.getElementById('myScreen');
+            table.innerHTML += `${i} Multiplication table`
+            for(let a = 1; a<= 12; a++){
+                table.innerHTML += `<p >${i} + ${a} = ${a+i}</p>`
+            }
+
+            let index = 1
+            while(index <= 10){
+                console.log(`Number ${index}`);
+                index++
+            }
+
+            let number = 35
+            do{
+                console.log(`${number}`);
+                number--
+            }
+            while (number >= 20)
+        }
+    </script>
+</body>
+</html>

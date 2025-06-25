@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p></p>
+    
+
+    <script>
+        // class nameofClass{
+        //     constructor(){
+        //         // initialization the object
+        //         this.property1 = parameter;
+        //     }
+        //     methodName(){
+        //         // code to be executed
+        //     }
+        // }
+        // let instance = new nameofClass("value of parameter");
+        // instance.method();
+
+
+        class Cake{
+            constructor(flavor){
+                this.flavorOfCake = flavor;
+            }
+            describe(){
+                console.log(`This is a ${this.flavorOfCake} flavored cake.`);
+            }
+        }
+        let chocolateCake = new Cake("Chocolate");
+        console.log(typeof chocolateCake); // object
+
+        chocolateCake.describe(); // This is a Chocolate flavored cake.
+        let vanillaCake = new Cake("Vanilla");
+        vanillaCake.describe(); // This is a Vanilla flavored cake.
+
+        class Student{
+            constructor(fullname, password, email)
+            {
+                this.fullname = fullname;
+                this.password = password;
+                this.email = email;
+            }
+            introduce(){
+                return `My name is ${this.fullname}, my password is ${this.password}, and my email is ${this.email}.`;
+            }
+        }
+
+        let Student1 = new Student("johnson", "password123", "johnson@example.com");
+        console.log(Student1.introduce()); // My name is johnson, my password is password123, and my email is johnson@example.com
+
+        let Student2 = new Student("jane", "mypassword2222", "jane@example.com");
+        console.log(Student2.introduce()); // My name is jane, my password is mypassword2222, and my email is jane@example.com
+
+        let secondStudent = Student2.introduce();
+        document.getElementById("myScreen").innerHTML = secondStudent;
+
+    </script>
+</body>
+</html>

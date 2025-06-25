@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: url(https://evaltable-js.netlify.app/backdrop.jpg);
+        background-size: cover;
+    }
+</style>
+<body>
+    
+
+    <div id="myScreen"></div>
+    <div>
+        Columns
+        <input type="text" id="columns" placeholder="Enter your number">
+        Rows
+        <input type="text" id="rows" placeholder="Enter your number">
+        Evaluation
+        <select name="evaluation" id="evaluation">
+            <option value="+">ADD</option>
+            <option value="-">SUBTRACTION</option>
+            <option value="*">MULTIPLICATION</option>
+            <option value="/">DIVISION</option>
+        </select>
+        <button id="Display" onclick="displayValues()">Displaytable</button>
+        <table></table>
+    </div>
+
+
+    <script>
+        function displayValues() {
+            let columns = document.getElementById('columns').value;
+            let rows = document.getElementById('rows').value;
+            let evaluation = document.getElementById('evaluation').value;
+            let table = document.querySelector('table');
+            table.innerHTML = ''; // Clear previous table content
+            for (let i = 1; i <= rows; i++) {
+                let row = document.createElement('tr');
+                for (let j = 1; j <= columns; j++) {
+                    let cell = document.createElement('td');
+                    let result;
+                    switch (evaluation) {
+                        case '+':
+                            result = i + j;
+                            break;
+                        case '-':
+                            result = i - j;
+                            break;
+                        case '*':
+                            result = i * j;
+                            break;
+                        case '/':
+                            result = i / j;
+                            break;
+                        default:
+                            result = 'Invalid operation';
+                    }
+                    cell.textContent = `${i} ${evaluation} ${j} = ${result}`;
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+            document.getElementById('myScreen').innerHTML = `You have created a table with ${rows} rows and ${columns} columns using ${evaluation} operation.`;
+        }
+    </script>
+</body>
+</html>

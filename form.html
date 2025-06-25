@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #fullname{
+        background-color: brown;
+        color: wheat;
+        border: none;
+        border-radius: 4px;
+        height: 30px;
+    }
+
+    #email{
+        background-color: brown;
+        color: wheat;
+        border: none;
+        border-radius: 4px;
+        border: 1px solid white;
+        height: 30px;
+    }
+    #password{
+        background-color: brown;
+        color: wheat;
+        border: 1px solid white;
+        height: 30px;
+        border-radius: 4px;
+    }
+    #click{
+        background-color: red;
+        border: none;
+        height: 20px;
+        border-radius: 4px;
+    }
+    body{
+        background-color: wheat;
+    }
+
+
+
+</style>
+<body>
+    <h1>PRACTISING FORM WITH JS</h1>
+    <input type="text" placeholder="fullname" id="fullname"><br>
+    <p style="display: none;" id="warning">please enter your full name</p>
+    <input type="email" placeholder="email" id="email"><br>
+    <p style="display: none;" id="warning2">please enter your email</p>
+    <input type="password" placeholder="password" id="password"><br>
+    <p style="display: none;" id="warning3">please enter your password</p>
+    <button id="click" onclick="submit()">submit</button>
+    <div id="myScreen"></div>
+    <p></p>
+
+    <script>
+        // function submit() {
+        //     let fullname = document.getElementById("fullname").value
+        //     let email = document.getElementById("email").value
+        //     let password = document.getElementById('password').value
+
+
+        //     if (fullname == '' || email == '' || password == '') {
+        //         alert('complete your registration')
+        //     }
+        //     else{
+        //         console.log(fullname, email, password);
+        //         document.getElementById("fullname").value = ''
+        //         document.getElementById("email").value = ''
+        //         document.getElementById('password').value = ''
+                
+        //     }
+        // }
+
+
+        function submit() {
+            let fullname = document.getElementById("fullname").value
+            Fullname = document.getElementById('myScreen').innerHTML += `Your fullname is ${fullname}` 
+            let email = document.getElementById("email").value 
+            Email = document.getElementById('myScreen').innerHTML += ` Your email is ${email}` 
+            let password = document.getElementById('password').value
+            Password = document.getElementById('myScreen').innerHTML += ` Your password is ${password}` 
+            let warning = document.getElementById('warning')
+
+
+            if (fullname == '') {
+                warning.style.display = 'block'
+                warning.style.color = 'red'
+                warning.style.fontSize = '10px'
+
+            }
+
+             if (email == '') {
+                warning2.style.display = 'block'
+                warning2.style.color = 'red'
+                warning2.style.fontSize = '10px'
+            }
+
+             if (password == '') {
+                warning3.style.display = 'block'
+                warning3.style.color = 'red'
+                warning3.style.fontSize = '10px'
+            }
+            else{
+                warning.style.display = 'none'
+                warning2.style.display = 'none'
+                warning3.style.display = 'none'
+                console.log(fullname, email, password);
+                document.getElementById("fullname").value = ''
+                document.getElementById("email").value = ''
+                document.getElementById('password').value = ''
+                
+            }
+        }
+    </script>
+</body>
+</html>
